@@ -142,67 +142,6 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 </pre>
 
-<hr>
-
-<h2>7. Loss Function</h2>
-<p>
-A loss function measures how far the predicted values are from the actual values.
-</p>
-
-<h3>Mean Squared Error (MSE)</h3>
-<p>
-MSE is commonly used in regression problems.
-</p>
-
-<pre>
-MSE = (1/n) Σ (actual − predicted)²
-</pre>
-
-<p>
-Lower loss indicates a better model.
-</p>
-
-<hr>
-
-<h2>8. Gradient Descent</h2>
-<p>
-Gradient Descent is an optimization algorithm used to minimize the loss function.
-</p>
-
-<p>
-It iteratively updates model parameters (m and c) by moving in the direction of
-the steepest decrease in loss.
-</p>
-
-<h3>Update Rules</h3>
-<pre>
-m = m − α * ∂(Loss)/∂m
-c = c − α * ∂(Loss)/∂c
-</pre>
-
-<hr>
-
-<h2>9. Learning Rate</h2>
-<p>
-The learning rate (α) controls how big a step gradient descent takes.
-</p>
-
-<ul>
-  <li>Too large → may overshoot the minimum</li>
-  <li>Too small → slow convergence</li>
-  <li>Optimal value → fast and stable learning</li>
-</ul>
-
-<p>
-Common values include <b>0.01</b>, <b>0.001</b>, and <b>0.1</b>.
-</p>
-
-<hr>
-
-<h2>10. R² Score (Coefficient of Determination)</h2>
-<p>
-R² score measures how well the regression model explains the variance in the data.
-</p>
 
 <h3>Interpretation</h3>
 <ul>
