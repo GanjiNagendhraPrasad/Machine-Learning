@@ -1,5 +1,5 @@
 
-<h2>1. Machine Learning?</h2>
+<h2>1. Machine Learning</h2>
 <p>
 Machine Learning (ML) is a subset of Artificial Intelligence that allows systems
 to learn patterns from data and make predictions or decisions without being
