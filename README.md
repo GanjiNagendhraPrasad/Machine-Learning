@@ -143,14 +143,6 @@ X_train, X_test, y_train, y_test = train_test_split(
 </pre>
 
 
-<h3>Interpretation</h3>
-<ul>
-  <li>R² = 1 → Perfect prediction</li>
-  <li>R² ≈ 0.9 → Very good</li>
-  <li>R² ≈ 0 → Poor model</li>
-  <li>R² &lt; 0 → Worse than random</li>
-</ul>
-
 <hr>
 
 <h2>11. Workflow of Simple Linear Regression</h2>
