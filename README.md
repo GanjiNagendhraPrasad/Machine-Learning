@@ -505,6 +505,45 @@ computationally expensive for large datasets.
 
 <hr>
 
+<h2>Simple Linear Regression</h2>
 
+<p>
+<strong>Simple Linear Regression (SLR)</strong> is a statistical and machine learning technique
+used to model the <strong>linear relationship</strong> between two variables:
+</p>
+
+<ul>
+  <li><strong>One independent variable</strong> — often called feature (X)</li>
+  <li><strong>One dependent variable</strong> — target (Y)</li>
+</ul>
+
+<p>
+It assumes that changes in <strong>X</strong> result in proportional changes in <strong>Y</strong>,
+and fits a straight line through the observed data to make predictions.
+</p>
+
+<hr>
+
+<h2>🧠 Model Equation</h2>
+
+<p>The model is represented by the equation:</p>
+
+<p style="font-size:18px;">
+  <strong>y = β<sub>0</sub> + β<sub>1</sub>x + ε</strong>
+</p>
+
+<h4>Where:</h4>
+<ul>
+  <li><strong>y</strong> = dependent variable (value we want to predict)</li>
+  <li><strong>x</strong> = independent variable (input)</li>
+  <li><strong>β<sub>0</sub></strong> = intercept (predicted value of y when x = 0)</li>
+  <li><strong>β<sub>1</sub></strong> = slope/coefficient (how strongly x affects y)</li>
+  <li><strong>ε</strong> = error term (difference between actual and predicted values)</li>
+</ul>
+
+<p>
+👉 The goal is to choose values of <strong>β<sub>0</sub></strong> and <strong>β<sub>1</sub></strong>
+so that the predicted line fits the data as closely as possible.
+</p>
 
 
