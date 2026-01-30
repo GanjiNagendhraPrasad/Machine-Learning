@@ -546,4 +546,90 @@ and fits a straight line through the observed data to make predictions.
 so that the predicted line fits the data as closely as possible.
 </p>
 
+<h1>Multiple Linear Regression (MLR) & Deployment on Render</h1>
 
+<hr>
+
+<h2>PART 1️⃣ What is Multiple Linear Regression (MLR)?</h2>
+
+<h3>🔹 Definition (Simple words)</h3>
+<p>
+<b>Multiple Linear Regression</b> is a supervised machine learning algorithm used to
+<b>predict a numeric value</b> using <b>more than one input feature</b>.
+</p>
+
+<p>👉 It is an extension of <b>Simple Linear Regression</b>.</p>
+
+<hr>
+
+<h3>🔹 Mathematical Equation</h3>
+
+<p><b>Simple Linear Regression:</b></p>
+<p><code>y = mx + c</code></p>
+
+<p><b>Multiple Linear Regression:</b></p>
+<p>
+<code>
+y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + 
+b<sub>3</sub>x<sub>3</sub> + ... + b<sub>n</sub>x<sub>n</sub>
+</code>
+</p>
+
+<p><b>Where:</b></p>
+<ul>
+  <li><b>y</b> → Predicted output (target)</li>
+  <li><b>x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>...</b> → Input features</li>
+  <li><b>b<sub>0</sub></b> → Intercept</li>
+  <li><b>b<sub>1</sub>, b<sub>2</sub>, b<sub>3</sub>...</b> → Coefficients (weights)</li>
+</ul>
+
+<hr>
+
+<h3>🔹 Example (Real-world)</h3>
+
+<p><b>Predict House Price using:</b></p>
+<ul>
+  <li>Area</li>
+  <li>Number of bedrooms</li>
+  <li>Location</li>
+  <li>Age of house</li>
+</ul>
+
+<p><b>Mapping:</b></p>
+<ul>
+  <li>Area → x<sub>1</sub></li>
+  <li>Bedrooms → x<sub>2</sub></li>
+  <li>Location → x<sub>3</sub></li>
+  <li>Age → x<sub>4</sub></li>
+</ul>
+
+<p>
+The model learns how <b>each feature contributes</b> to the house price.
+</p>
+
+<hr>
+
+<h3>🔹 Why we use MLR?</h3>
+<ul>
+  <li>✅ Uses multiple factors</li>
+  <li>✅ More accurate than Simple Linear Regression</li>
+  <li>✅ Widely used in salary, price, and demand prediction</li>
+</ul>
+
+<hr>
+
+<h3>🔹 Training an MLR Model (Concept)</h3>
+<ol>
+  <li>Load dataset</li>
+  <li>Split data into <b>X (features)</b> and <b>y (target)</b></li>
+  <li>Apply <code>train_test_split</code></li>
+  <li>Train model using <code>LinearRegression()</code></li>
+  <li>Evaluate using:
+    <ul>
+      <li>R² Score</li>
+      <li>Mean Squared Error (MSE)</li>
+    </ul>
+  </li>
+</ol>
+
+<hr
