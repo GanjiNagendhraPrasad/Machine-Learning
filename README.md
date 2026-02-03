@@ -633,3 +633,193 @@ The model learns how <b>each feature contributes</b> to the house price.
 </ol>
 
 <hr
+
+
+
+<h1>📈 Polynomial Linear Regression</h1>
+
+<h2>🔍 What is Polynomial Linear Regression?</h2>
+<p>
+Polynomial Linear Regression is a supervised machine learning regression technique
+used when the relationship between the independent variable (X) and dependent
+variable (Y) is <b>non-linear</b>, but the model is still <b>linear in parameters</b>.
+</p>
+
+<p><b>Key Idea:</b> The model is linear with respect to coefficients, but non-linear with respect to input features.</p>
+
+<hr>
+
+<h2>❓ Why Do We Need Polynomial Regression?</h2>
+<p>
+Simple Linear Regression assumes a straight-line relationship:
+</p>
+
+<p><b>y = mx + c</b></p>
+
+<p>
+However, real-world data often follows curved patterns such as:
+</p>
+
+<ul>
+  <li>U-shaped curves</li>
+  <li>Parabolic trends</li>
+  <li>Complex growth patterns</li>
+</ul>
+
+<p>
+In such cases, linear regression underfits the data.
+Polynomial regression solves this problem by adding higher-degree terms.
+</p>
+
+<hr>
+
+<h2>🧮 Mathematical Representation</h2>
+
+<p><b>Degree 2 (Quadratic):</b></p>
+<p>y = b₀ + b₁x + b₂x²</p>
+
+<p><b>Degree 3 (Cubic):</b></p>
+<p>y = b₀ + b₁x + b₂x² + b₃x³</p>
+
+<p><b>General form:</b></p>
+<p>y = b₀ + b₁x + b₂x² + ... + bₙxⁿ</p>
+
+<p>
+Even though higher powers of x exist, the equation is still linear
+because coefficients are not multiplied together.
+</p>
+
+<hr>
+
+<h2>🧠 Why Is It Called Linear Regression?</h2>
+<p>
+It is called linear regression because the model is linear with respect to the
+parameters (b₀, b₁, b₂, ...), not the input features.
+</p>
+
+<hr>
+
+<h2>⚙️ How Polynomial Regression Works</h2>
+
+<ol>
+  <li>Start with the original feature X</li>
+  <li>Create polynomial features (x², x³, ...)</li>
+  <li>Apply linear regression on the transformed features</li>
+</ol>
+
+<hr>
+
+<h2>🧑‍💻 Python Implementation (scikit-learn)</h2>
+
+<pre>
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X)
+
+model = LinearRegression()
+model.fit(X_poly, y)
+
+y_pred = model.predict(X_poly)
+</pre>
+
+<hr>
+
+<h2>🎯 Choosing the Polynomial Degree</h2>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>Degree</th>
+    <th>Effect</th>
+  </tr>
+  <tr>
+    <td>Low</td>
+    <td>Underfitting</td>
+  </tr>
+  <tr>
+    <td>Optimal</td>
+    <td>Good bias-variance balance</td>
+  </tr>
+  <tr>
+    <td>High</td>
+    <td>Overfitting</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>⚠️ Overfitting Problem</h2>
+<p>
+High-degree polynomials may perfectly fit training data but perform poorly
+on unseen data.
+</p>
+
+<p><b>Solutions:</b></p>
+<ul>
+  <li>Cross-validation</li>
+  <li>Regularization (Ridge, Lasso)</li>
+  <li>Choosing optimal degree</li>
+</ul>
+
+<hr>
+
+<h2>✅ Advantages</h2>
+<ul>
+  <li>Models non-linear relationships</li>
+  <li>Easy to implement</li>
+  <li>Flexible and powerful</li>
+</ul>
+
+<h2>❌ Disadvantages</h2>
+<ul>
+  <li>Prone to overfitting</li>
+  <li>Sensitive to outliers</li>
+  <li>Poor extrapolation</li>
+</ul>
+
+<hr>
+
+<h2>🆚 Linear vs Polynomial Regression</h2>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>Feature</th>
+    <th>Linear</th>
+    <th>Polynomial</th>
+  </tr>
+  <tr>
+    <td>Relationship</td>
+    <td>Straight line</td>
+    <td>Curved</td>
+  </tr>
+  <tr>
+    <td>Complexity</td>
+    <td>Low</td>
+    <td>Higher</td>
+  </tr>
+  <tr>
+    <td>Accuracy on non-linear data</td>
+    <td>Low</td>
+    <td>High</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>📌 Real-World Applications</h2>
+<ul>
+  <li>Salary prediction</li>
+  <li>House price prediction</li>
+  <li>Growth trend analysis</li>
+  <li>Engineering and physics models</li>
+</ul>
+
+<hr>
+
+<h2>📝 Summary</h2>
+<p>
+Polynomial Linear Regression extends linear regression by introducing
+polynomial features to capture non-linear patterns while keeping the model linear.
+Choosing the correct degree is critical for good performance.
+</p>
