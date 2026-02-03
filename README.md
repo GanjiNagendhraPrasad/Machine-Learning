@@ -1087,7 +1087,7 @@ The penalty term depends on the type of regularization used.
 <ul>
   <li>Ridge Regression (L2)</li>
   <li>Lasso Regression (L1)</li>
-  <li>Elastic Net</li>
+ 
 </ul>
 
 <hr>
@@ -1126,25 +1126,7 @@ Loss = Σ (y − ŷ)² + λ Σ |w|
   <li>Performs feature selection</li>
 </ul>
 
-<hr>
 
-<h2>3️⃣ Elastic Net Regularization</h2>
-<p>
-Elastic Net is a combination of Ridge and Lasso regularization.
-</p>
-
-<p><b>Formula:</b></p>
-<p>
-Loss = Σ (y − ŷ)² + λ₁ Σ |w| + λ₂ Σ w²
-</p>
-
-<ul>
-  <li>Handles multicollinearity</li>
-  <li>Performs feature selection</li>
-  <li>More stable than Lasso alone</li>
-</ul>
-
-<hr>
 
 <h2>🎛️ Role of Lambda (λ)</h2>
 <p>
@@ -1197,9 +1179,7 @@ ridge.fit(X_train, y_train)
 lasso = Lasso(alpha=0.1)
 lasso.fit(X_train, y_train)
 
-# Elastic Net
-elastic = ElasticNet(alpha=0.1, l1_ratio=0.5)
-elastic.fit(X_train, y_train)
+
 </pre>
 
 <hr>
@@ -1248,6 +1228,6 @@ elastic.fit(X_train, y_train)
 <h2>📝 Summary</h2>
 <p>
 Regularization helps build simpler, more generalizable models by penalizing
-large coefficients. Ridge, Lasso, and Elastic Net are the most commonly used
+large coefficients. Ridge, Lasso are the most commonly used
 regularization techniques in regression problems.
 </p>
