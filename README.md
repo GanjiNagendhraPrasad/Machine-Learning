@@ -1016,3 +1016,238 @@ R² score measures how well a regression model fits the data,
 while Adjusted R² provides a more reliable measure by considering
 the number of features used in the model.
 </p>
+
+<h1>🎯 Regularization in Machine Learning</h1>
+
+<h2>🔍 What is Regularization?</h2>
+<p>
+Regularization is a technique used to prevent <b>overfitting</b> in machine learning models
+by adding a <b>penalty term</b> to the loss function.
+</p>
+
+<p>
+In simple words, regularization discourages the model from learning
+complex patterns by forcing the coefficients to remain small.
+</p>
+
+<hr>
+
+<h2>❓ Why Do We Need Regularization?</h2>
+<p>
+Overfitting occurs when a model:
+</p>
+<ul>
+  <li>Performs very well on training data</li>
+  <li>Performs poorly on unseen test data</li>
+  <li>Learns noise instead of the real pattern</li>
+</ul>
+
+<p>
+This problem is common in:
+</p>
+<ul>
+  <li>Polynomial Regression</li>
+  <li>Multiple Linear Regression</li>
+  <li>High-dimensional datasets</li>
+</ul>
+
+<hr>
+
+<h2>🧠 Intuition Behind Regularization</h2>
+<p>
+Large coefficient values make the model overly sensitive to small changes in input data.
+Regularization penalizes large coefficients and keeps the model simple and stable.
+</p>
+
+<hr>
+
+<h2>🧮 Cost Function Without Regularization</h2>
+<p>
+<b>Loss = Σ (y − ŷ)²</b>
+</p>
+
+<p>
+This minimizes prediction error but does not control model complexity.
+</p>
+
+<hr>
+
+<h2>➕ Cost Function With Regularization</h2>
+<p>
+<b>Loss = Σ (y − ŷ)² + Penalty Term</b>
+</p>
+
+<p>
+The penalty term depends on the type of regularization used.
+</p>
+
+<hr>
+
+<h2>🔥 Types of Regularization</h2>
+<ul>
+  <li>Ridge Regression (L2)</li>
+  <li>Lasso Regression (L1)</li>
+  <li>Elastic Net</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ Ridge Regression (L2 Regularization)</h2>
+<p>
+Ridge regression adds the square of the coefficients as a penalty term.
+</p>
+
+<p><b>Formula:</b></p>
+<p>
+Loss = Σ (y − ŷ)² + λ Σ w²
+</p>
+
+<ul>
+  <li>Shrinks coefficients toward zero</li>
+  <li>Does not eliminate features</li>
+  <li>Handles multicollinearity well</li>
+</ul>
+
+<hr>
+
+<h2>2️⃣ Lasso Regression (L1 Regularization)</h2>
+<p>
+Lasso regression adds the absolute value of the coefficients as a penalty.
+</p>
+
+<p><b>Formula:</b></p>
+<p>
+Loss = Σ (y − ŷ)² + λ Σ |w|
+</p>
+
+<ul>
+  <li>Shrinks coefficients</li>
+  <li>Can make coefficients exactly zero</li>
+  <li>Performs feature selection</li>
+</ul>
+
+<hr>
+
+<h2>3️⃣ Elastic Net Regularization</h2>
+<p>
+Elastic Net is a combination of Ridge and Lasso regularization.
+</p>
+
+<p><b>Formula:</b></p>
+<p>
+Loss = Σ (y − ŷ)² + λ₁ Σ |w| + λ₂ Σ w²
+</p>
+
+<ul>
+  <li>Handles multicollinearity</li>
+  <li>Performs feature selection</li>
+  <li>More stable than Lasso alone</li>
+</ul>
+
+<hr>
+
+<h2>🎛️ Role of Lambda (λ)</h2>
+<p>
+Lambda controls the strength of regularization.
+</p>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>λ Value</th>
+    <th>Effect</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>No regularization</td>
+  </tr>
+  <tr>
+    <td>Small</td>
+    <td>Slight penalty</td>
+  </tr>
+  <tr>
+    <td>Large</td>
+    <td>Strong penalty</td>
+  </tr>
+  <tr>
+    <td>Very large</td>
+    <td>Underfitting</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>⚖️ Bias–Variance Tradeoff</h2>
+<p>
+Regularization slightly increases bias but significantly reduces variance,
+resulting in better generalization.
+</p>
+
+<hr>
+
+<h2>🧪 Python Example (scikit-learn)</h2>
+
+<pre>
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
+
+# Ridge
+ridge = Ridge(alpha=1.0)
+ridge.fit(X_train, y_train)
+
+# Lasso
+lasso = Lasso(alpha=0.1)
+lasso.fit(X_train, y_train)
+
+# Elastic Net
+elastic = ElasticNet(alpha=0.1, l1_ratio=0.5)
+elastic.fit(X_train, y_train)
+</pre>
+
+<hr>
+
+<h2>🆚 Regularization Comparison</h2>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>Feature</th>
+    <th>Ridge</th>
+    <th>Lasso</th>
+    <th>Elastic Net</th>
+  </tr>
+  <tr>
+    <td>Penalty Type</td>
+    <td>L2</td>
+    <td>L1</td>
+    <td>L1 + L2</td>
+  </tr>
+  <tr>
+    <td>Feature Selection</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Handles Multicollinearity</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>📌 When to Use Regularization?</h2>
+<ul>
+  <li>When the model overfits</li>
+  <li>When dataset has many features</li>
+  <li>When using polynomial features</li>
+  <li>When multicollinearity exists</li>
+</ul>
+
+<hr>
+
+<h2>📝 Summary</h2>
+<p>
+Regularization helps build simpler, more generalizable models by penalizing
+large coefficients. Ridge, Lasso, and Elastic Net are the most commonly used
+regularization techniques in regression problems.
+</p>
