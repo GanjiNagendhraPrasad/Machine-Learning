@@ -823,3 +823,196 @@ Polynomial Linear Regression extends linear regression by introducing
 polynomial features to capture non-linear patterns while keeping the model linear.
 Choosing the correct degree is critical for good performance.
 </p>
+
+
+<h1>📊 R² Score and Adjusted R² Score</h1>
+
+<h2>🔍 What is R² Score?</h2>
+<p>
+R² Score (Coefficient of Determination) measures how well a regression model
+explains the variation in the dependent variable (Y).
+</p>
+
+<p><b>In simple words:</b></p>
+<p>
+It tells us what percentage of the total variation in the target variable
+is explained by the model.
+</p>
+
+<hr>
+
+<h2>🧠 Intuition Behind R² Score</h2>
+<p>
+If your model predicts values close to the actual data points,
+the R² score will be high.
+</p>
+
+<p>
+For example, an R² score of <b>0.85</b> means:
+</p>
+<ul>
+  <li>85% of the variation in Y is explained by the model</li>
+  <li>15% remains unexplained</li>
+</ul>
+
+<hr>
+
+<h2>📐 Formula of R² Score</h2>
+
+<p>
+<b>R² = 1 − (SS<sub>res</sub> / SS<sub>tot</sub>)</b>
+</p>
+
+<p><b>Where:</b></p>
+<ul>
+  <li><b>SS<sub>tot</sub></b> – Total Sum of Squares (total variation in Y)</li>
+  <li><b>SS<sub>res</sub></b> – Residual Sum of Squares (prediction error)</li>
+</ul>
+
+<hr>
+
+<h2>📊 R² Score Interpretation</h2>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>R² Value</th>
+    <th>Interpretation</th>
+  </tr>
+  <tr>
+    <td>1.0</td>
+    <td>Perfect model</td>
+  </tr>
+  <tr>
+    <td>0.9</td>
+    <td>Very good fit</td>
+  </tr>
+  <tr>
+    <td>0.7</td>
+    <td>Good fit</td>
+  </tr>
+  <tr>
+    <td>0.0</td>
+    <td>No explanatory power</td>
+  </tr>
+  <tr>
+    <td>&lt; 0</td>
+    <td>Worse than predicting mean</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>⚠️ Limitation of R² Score</h2>
+<p>
+R² score always increases when new features are added,
+even if those features are useless.
+</p>
+
+<p>
+This makes R² unreliable for Multiple Linear Regression.
+</p>
+
+<hr>
+
+<h2>📉 What is Adjusted R² Score?</h2>
+<p>
+Adjusted R² improves R² by penalizing unnecessary independent variables.
+</p>
+
+<p>
+It increases only when a new feature actually improves the model.
+</p>
+
+<hr>
+
+<h2>📐 Formula of Adjusted R²</h2>
+
+<p>
+<b>
+Adjusted R² = 1 − [(1 − R²) × (n − 1) / (n − p − 1)]
+</b>
+</p>
+
+<p><b>Where:</b></p>
+<ul>
+  <li><b>n</b> = number of observations</li>
+  <li><b>p</b> = number of independent variables</li>
+  <li><b>R²</b> = R² score</li>
+</ul>
+
+<hr>
+
+<h2>🧠 Why Adjusted R² is Important</h2>
+<ul>
+  <li>Penalizes irrelevant features</li>
+  <li>Prevents overfitting</li>
+  <li>More reliable for multiple regression</li>
+</ul>
+
+<hr>
+
+<h2>🆚 R² Score vs Adjusted R² Score</h2>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>Feature</th>
+    <th>R² Score</th>
+    <th>Adjusted R² Score</th>
+  </tr>
+  <tr>
+    <td>Penalizes extra features</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Always increases</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Best for</td>
+    <td>Simple Linear Regression</td>
+    <td>Multiple Linear Regression</td>
+  </tr>
+  <tr>
+    <td>Reliability</td>
+    <td>Medium</td>
+    <td>High</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>🧪 Python Example</h2>
+
+<pre>
+from sklearn.metrics import r2_score
+
+r2 = r2_score(y_test, y_pred)
+print("R2 Score:", r2)
+
+n = X_test.shape[0]
+p = X_test.shape[1]
+
+adjusted_r2 = 1 - (1 - r2) * (n - 1) / (n - p - 1)
+print("Adjusted R2:", adjusted_r2)
+</pre>
+
+<hr>
+
+<h2>📌 When to Use Which?</h2>
+
+<ul>
+  <li>Use <b>R²</b> for Simple Linear Regression</li>
+  <li>Use <b>Adjusted R²</b> for Multiple Linear Regression</li>
+  <li>Use Adjusted R² for model comparison</li>
+</ul>
+
+<hr>
+
+<h2>📝 Summary</h2>
+<p>
+R² score measures how well a regression model fits the data,
+while Adjusted R² provides a more reliable measure by considering
+the number of features used in the model.
+</p>
