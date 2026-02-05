@@ -1231,3 +1231,234 @@ Regularization helps build simpler, more generalizable models by penalizing
 large coefficients. Ridge, Lasso are the most commonly used
 regularization techniques in regression problems.
 </p>
+
+<h1>📌 Classification and K-Nearest Neighbors (KNN) Algorithm</h1>
+
+<hr>
+
+<h2>1️⃣ What is Classification?</h2>
+<p>
+Classification is a <b>supervised machine learning technique</b> where the target variable is
+<b>categorical</b>.
+</p>
+
+<p><b>Examples:</b></p>
+<ul>
+  <li>Spam / Not Spam</li>
+  <li>Yes / No</li>
+  <li>Malignant / Benign</li>
+</ul>
+
+<p>
+In this project, the dataset is a <b>binary classification problem</b> where:
+</p>
+<ul>
+  <li><b>1 → Malignant</b></li>
+  <li><b>0 → Benign</b></li>
+</ul>
+
+<hr>
+
+<h2>2️⃣ What is K-Nearest Neighbors (KNN)?</h2>
+<p>
+KNN is a <b>distance-based supervised learning algorithm</b> used for classification.
+</p>
+
+<ul>
+  <li>It does not learn a mathematical equation</li>
+  <li>It stores the training data</li>
+  <li>Prediction is made using nearest data points</li>
+</ul>
+
+<p>
+KNN is also called a <b>lazy learning algorithm</b>.
+</p>
+
+<hr>
+
+<h2>3️⃣ How KNN Works</h2>
+
+<ol>
+  <li>Select the value of <b>K</b> (number of neighbors)</li>
+  <li>Calculate distance between test point and all training points</li>
+  <li>Select <b>K nearest neighbors</b></li>
+  <li>Apply <b>majority voting</b></li>
+</ol>
+
+<p>
+The class with the highest votes becomes the predicted output.
+</p>
+
+<hr>
+
+<h2>4️⃣ Distance Formula (Euclidean Distance)</h2>
+
+<p>
+KNN uses <b>Euclidean Distance</b> by default.
+</p>
+
+<p><b>Formula:</b></p>
+
+<p>
+d = √[(x₁ − x₂)² + (y₁ − y₂)² + ...]
+</p>
+
+<p>
+For multiple features:
+</p>
+
+<p>
+d = √(Σ(xᵢ − yᵢ)²)
+</p>
+
+<p>
+In this dataset, distance is calculated using <b>30 numerical features</b>.
+</p>
+
+<hr>
+
+<h2>5️⃣ Default Value of K</h2>
+
+<p>
+In Scikit-learn:
+</p>
+
+<pre>
+KNeighborsClassifier()
+</pre>
+
+<p>
+The default value of <b>K = 5</b>.
+</p>
+
+<p>
+Using K=5 helps reduce overfitting compared to K=1.
+</p>
+
+<hr>
+
+<h2>6️⃣ Confusion Matrix</h2>
+
+<p>
+A confusion matrix evaluates the performance of a classification model.
+</p>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th></th>
+    <th>Predicted 0</th>
+    <th>Predicted 1</th>
+  </tr>
+  <tr>
+    <th>Actual 0</th>
+    <td>True Negative (TN)</td>
+    <td>False Positive (FP)</td>
+  </tr>
+  <tr>
+    <th>Actual 1</th>
+    <td>False Negative (FN)</td>
+    <td>True Positive (TP)</td>
+  </tr>
+</table>
+
+<p>
+In medical datasets, <b>false negatives</b> are very dangerous because cancer cases may be missed.
+</p>
+
+<hr>
+
+<h2>7️⃣ Accuracy</h2>
+
+<p>
+Accuracy measures the overall correctness of the model.
+</p>
+
+<p><b>Formula:</b></p>
+
+<p>
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+</p>
+
+<p>
+Accuracy alone is not reliable for imbalanced datasets.
+</p>
+
+<hr>
+
+<h2>8️⃣ Classification Report</h2>
+
+<p>
+The classification report provides:
+</p>
+
+<ul>
+  <li>Precision</li>
+  <li>Recall</li>
+  <li>F1-Score</li>
+  <li>Support</li>
+</ul>
+
+<h3>🔹 Precision</h3>
+<p>
+Precision = TP / (TP + FP)
+</p>
+<p>
+It measures how many predicted positive cases are actually positive.
+</p>
+
+<h3>🔹 Recall (Sensitivity)</h3>
+<p>
+Recall = TP / (TP + FN)
+</p>
+<p>
+It measures how many actual positive cases are correctly identified.
+</p>
+
+<h3>🔹 F1 Score</h3>
+<p>
+F1 Score = 2 × (Precision × Recall) / (Precision + Recall)
+</p>
+<p>
+It balances precision and recall.
+</p>
+
+<h3>🔹 Support</h3>
+<p>
+Support represents the number of actual samples in each class.
+</p>
+
+<hr>
+
+<h2>9️⃣ Selecting the Best K Value</h2>
+
+<p>
+To find the optimal K:
+</p>
+
+<ol>
+  <li>Train the model for different K values</li>
+  <li>Calculate accuracy or error for each K</li>
+  <li>Select K with highest test accuracy or lowest error</li>
+</ol>
+
+<p>
+Odd values of K are preferred to avoid ties in binary classification.
+</p>
+
+<ul>
+  <li>Small K → Overfitting</li>
+  <li>Large K → Underfitting</li>
+  <li>Optimal K → Best balance</li>
+</ul>
+
+<hr>
+
+<h2>🔚 Conclusion</h2>
+
+<ul>
+  <li>Classification predicts categorical outputs</li>
+  <li>KNN is a distance-based, lazy learning algorithm</li>
+  <li>Uses Euclidean distance</li>
+  <li>Evaluation includes confusion matrix and classification report</li>
+  <li>Best K is selected by testing multiple values</li>
+</ul>
