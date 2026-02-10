@@ -1462,3 +1462,256 @@ Odd values of K are preferred to avoid ties in binary classification.
   <li>Evaluation includes confusion matrix and classification report</li>
   <li>Best K is selected by testing multiple values</li>
 </ul>
+
+
+<h1>Naive Bayes Classification – Detailed Explanation</h1>
+
+<h2>1. Introduction to Naive Bayes</h2>
+<p>
+Naive Bayes is a <b>probabilistic classification algorithm</b> based on 
+<b>Bayes’ Theorem</b>. It is called <i>naive</i> because it assumes that all 
+features are <b>independent of each other</b> given the class label.
+</p>
+
+<p>
+Despite this strong assumption, Naive Bayes performs very well in many real-world
+applications such as spam detection, sentiment analysis, and text classification.
+</p>
+
+<hr>
+
+<h2>2. Bayes’ Theorem</h2>
+<p>The core formula behind Naive Bayes is:</p>
+
+<p><b>P(C | X) = (P(X | C) × P(C)) / P(X)</b></p>
+
+<ul>
+  <li><b>C</b> – Class label</li>
+  <li><b>X</b> – Input features (x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>)</li>
+  <li><b>P(C | X)</b> – Posterior probability</li>
+  <li><b>P(C)</b> – Prior probability</li>
+  <li><b>P(X | C)</b> – Likelihood</li>
+  <li><b>P(X)</b> – Evidence (constant, usually ignored)</li>
+</ul>
+
+<p>
+Using the naive assumption, the likelihood becomes:
+</p>
+
+<p>
+<b>P(X | C) = P(x<sub>1</sub> | C) × P(x<sub>2</sub> | C) × ... × P(x<sub>n</sub> | C)</b>
+</p>
+
+<hr>
+
+<h2>3. How Naive Bayes Divides the Data</h2>
+
+<h3>3.1 Dataset Structure</h3>
+<p>
+The dataset is divided into:
+</p>
+<ul>
+  <li><b>Independent variables (X)</b> – features</li>
+  <li><b>Dependent variable (y)</b> – class label(s)</li>
+</ul>
+
+<h3>3.2 Train-Test Split</h3>
+<p>
+The dataset is split into training and testing sets:
+</p>
+<ul>
+  <li><b>Training data</b> – used to learn probabilities</li>
+  <li><b>Testing data</b> – used to evaluate the model</li>
+</ul>
+
+<p>
+Typically, 70–80% of data is used for training and 20–30% for testing.
+</p>
+
+<hr>
+
+<h2>4. How Naive Bayes is Trained</h2>
+
+<p>
+Naive Bayes does not use gradient descent or weight optimization. Instead, it
+learns by <b>calculating probabilities</b>.
+</p>
+
+<h3>4.1 Prior Probability</h3>
+<p>
+The prior probability of a class is calculated as:
+</p>
+
+<p>
+<b>P(C) = (Number of samples in class C) / (Total number of samples)</b>
+</p>
+
+<h3>4.2 Likelihood Calculation</h3>
+<p>
+The likelihood depends on the type of Naive Bayes used:
+</p>
+
+<ul>
+  <li><b>Gaussian Naive Bayes</b> – continuous data</li>
+  <li><b>Multinomial Naive Bayes</b> – count-based data (text)</li>
+  <li><b>Bernoulli Naive Bayes</b> – binary data (0/1)</li>
+</ul>
+
+<h3>Gaussian Naive Bayes</h3>
+<p>
+Gaussian Naive Bayes assumes features follow a normal distribution:
+</p>
+
+<p>
+<b>
+P(x | C) = (1 / √(2πσ²)) × exp(−(x − μ)² / (2σ²))
+</b>
+</p>
+
+<p>
+For each feature and each class, the algorithm calculates:
+</p>
+<ul>
+  <li>Mean (μ)</li>
+  <li>Variance (σ²)</li>
+</ul>
+
+<hr>
+
+<h2>5. Normalization in Naive Bayes</h2>
+
+<p>
+Normalization is <b>not mandatory</b> but recommended when features have different
+scales.
+</p>
+
+<p>
+Since Gaussian Naive Bayes uses mean and variance, large feature values can
+dominate probability calculations.
+</p>
+
+<p>
+Standardization (mean = 0, variance = 1) improves numerical stability and model
+performance.
+</p>
+
+<hr>
+
+<h2>6. How Naive Bayes Makes Predictions</h2>
+
+<p>
+For a new input sample, Naive Bayes performs the following steps:
+</p>
+
+<ol>
+  <li>Calculate posterior probability for each class</li>
+  <li>Compare probabilities</li>
+  <li>Select the class with the highest probability</li>
+</ol>
+
+<p>
+The predicted class is:
+</p>
+
+<p>
+<b>ŷ = argmax<sub>C</sub> P(C | X)</b>
+</p>
+
+<hr>
+
+<h2>7. Multi-Label Classification with Naive Bayes</h2>
+
+<h3>7.1 What is Multi-Label Classification?</h3>
+<p>
+In multi-label classification, a single data point can belong to
+<b>multiple classes at the same time</b>.
+</p>
+
+<p>
+Example:
+</p>
+<ul>
+  <li>Email → Spam, Promotion</li>
+  <li>Image → Dog, Outdoor, Daytime</li>
+</ul>
+
+<h3>7.2 One-vs-Rest Strategy</h3>
+<p>
+Naive Bayes is inherently a single-label classifier. For multi-label problems,
+the <b>One-vs-Rest (OvR)</b> strategy is used.
+</p>
+
+<ul>
+  <li>One classifier is trained per label</li>
+  <li>Each classifier predicts presence (1) or absence (0) of that label</li>
+</ul>
+
+<p>
+The final output is a binary vector representing all predicted labels.
+</p>
+
+<hr>
+
+<h2>8. Model Evaluation and Classification Report</h2>
+
+<p>
+After prediction, model performance is evaluated using a
+<b>classification report</b>.
+</p>
+
+<h3>Evaluation Metrics</h3>
+
+<ul>
+  <li>
+    <b>Precision</b> = TP / (TP + FP)  
+    <br>Measures correctness of predicted labels
+  </li>
+  <li>
+    <b>Recall</b> = TP / (TP + FN)  
+    <br>Measures how many actual labels were detected
+  </li>
+  <li>
+    <b>F1-Score</b>  
+    <br>Harmonic mean of precision and recall
+  </li>
+  <li>
+    <b>Support</b>  
+    <br>Number of true samples for each label
+  </li>
+</ul>
+
+<h3>Averaging Methods</h3>
+<ul>
+  <li><b>Micro Average</b> – global performance</li>
+  <li><b>Macro Average</b> – average per label</li>
+  <li><b>Weighted Average</b> – accounts for label imbalance</li>
+</ul>
+
+<hr>
+
+<h2>9. Overall Workflow</h2>
+
+<pre>
+Dataset
+   ↓
+Train-Test Split
+   ↓
+(Optional) Normalization
+   ↓
+Probability Calculation (Training)
+   ↓
+Prediction using Bayes Theorem
+   ↓
+Evaluation using Classification Report
+</pre>
+
+<hr>
+
+<h2>10. Advantages of Naive Bayes</h2>
+
+<ul>
+  <li>Fast training and prediction</li>
+  <li>Works well with small datasets</li>
+  <li>Handles high-dimensional data efficiently</li>
+  <li>Simple and interpretable</li>
+</ul>
