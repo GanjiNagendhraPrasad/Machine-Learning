@@ -1939,3 +1939,229 @@ training, evaluation, and real-time prediction, making it suitable for both
 academic and practical applications.
 </p>
 
+<h1>Decision Tree – Detailed Explanation</h1>
+
+<h2>1. What is a Decision Tree?</h2>
+<p>
+A <b>Decision Tree</b> is a <b>supervised machine learning algorithm</b> used for
+both <b>classification</b> and <b>regression</b> problems. It works by splitting
+the dataset into smaller subsets based on feature values, forming a tree-like
+structure of decisions.
+</p>
+
+<p>
+Each internal node represents a <b>feature</b>, each branch represents a
+<b>decision rule</b>, and each leaf node represents the <b>final output</b>.
+</p>
+
+---
+
+<h2>2. Why Decision Trees?</h2>
+<ul>
+  <li>Easy to understand and interpret</li>
+  <li>Works with both numerical and categorical data</li>
+  <li>No need for feature scaling</li>
+  <li>Handles non-linear relationships well</li>
+</ul>
+
+---
+
+<h2>3. How a Decision Tree Works</h2>
+<p>
+A decision tree repeatedly splits the data based on the feature that provides
+the <b>best separation</b> between classes.
+</p>
+
+<p>
+For classification problems, common splitting criteria are:
+</p>
+<ul>
+  <li><b>Gini Index</b></li>
+  <li><b>Entropy</b></li>
+  <li><b>Information Gain</b></li>
+</ul>
+
+---
+
+<h2>4. Entropy</h2>
+<p>
+Entropy measures the <b>impurity</b> or randomness in the data.
+</p>
+
+<pre>
+Entropy = - Σ p log2(p)
+</pre>
+
+<p>
+Where <b>p</b> is the probability of each class.
+Lower entropy means purer data.
+</p>
+
+---
+
+<h2>5. Information Gain</h2>
+<p>
+Information Gain measures how much entropy is reduced after a split.
+The feature with the <b>highest information gain</b> is selected for splitting.
+</p>
+
+<pre>
+Information Gain = Entropy(parent) − Weighted Entropy(children)
+</pre>
+
+---
+
+<h2>6. Training Process</h2>
+<ol>
+  <li>Select the best feature using entropy or gini</li>
+  <li>Split the dataset based on that feature</li>
+  <li>Repeat recursively for each child node</li>
+  <li>Stop when data becomes pure or stopping criteria is met</li>
+</ol>
+
+---
+
+<h2>7. Overfitting in Decision Trees</h2>
+<p>
+Decision trees can easily overfit the training data.
+To prevent this, we use:
+</p>
+<ul>
+  <li>Maximum depth</li>
+  <li>Minimum samples per split</li>
+  <li>Minimum samples per leaf</li>
+  <li>Pruning</li>
+</ul>
+
+---
+
+<hr>
+
+<h1>Project Explanation: Decision Tree Classification</h1>
+
+<h2>1. Dataset</h2>
+<p>
+This project uses the <b>Iris dataset</b>, which contains flower measurements
+belonging to three different species:
+</p>
+
+<ul>
+  <li>Iris-setosa</li>
+  <li>Iris-versicolor</li>
+  <li>Iris-virginica</li>
+</ul>
+
+<p>
+The dataset includes the following features:
+</p>
+<ul>
+  <li>Sepal Length</li>
+  <li>Sepal Width</li>
+  <li>Petal Length</li>
+  <li>Petal Width</li>
+</ul>
+
+---
+
+<h2>2. Data Preprocessing</h2>
+<p>
+The <b>Id</b> column is removed since it does not help in prediction.
+</p>
+
+<p>
+The target column (<b>Species</b>) is converted into numerical values so that the
+machine learning model can process it.
+</p>
+
+---
+
+<h2>3. Feature and Target Separation</h2>
+<p>
+The dataset is divided into:
+</p>
+<ul>
+  <li><b>X (Features)</b>: Flower measurements</li>
+  <li><b>y (Target)</b>: Encoded flower species</li>
+</ul>
+
+---
+
+<h2>4. Train-Test Split</h2>
+<p>
+The dataset is split into:
+</p>
+<ul>
+  <li>80% Training Data</li>
+  <li>20% Testing Data</li>
+</ul>
+
+<p>
+This helps evaluate the model on unseen data.
+</p>
+
+---
+
+<h2>5. Model Training</h2>
+<p>
+A <b>Decision Tree Classifier</b> from <b>scikit-learn</b> is used to train the
+model on the training dataset.
+</p>
+
+<p>
+During training, the model:
+</p>
+<ul>
+  <li>Selects optimal features for splitting</li>
+  <li>Builds a tree structure based on decision rules</li>
+  <li>Stops splitting when conditions are satisfied</li>
+</ul>
+
+---
+
+<h2>6. Model Evaluation</h2>
+<p>
+Model performance is evaluated using <b>accuracy score</b> on both:
+</p>
+<ul>
+  <li>Training Data</li>
+  <li>Testing Data</li>
+</ul>
+
+<p>
+Good test accuracy indicates effective learning without overfitting.
+</p>
+
+---
+
+<h2>7. Prediction with Custom Input</h2>
+<p>
+The model allows predictions using custom flower measurements.
+</p>
+
+<p>
+Based on the predicted class:
+</p>
+<ul>
+  <li>0 → Setosa</li>
+  <li>1 → Versicolor</li>
+  <li>2 → Virginica</li>
+</ul>
+
+---
+
+<h2>8. Advantages of Decision Tree</h2>
+<ul>
+  <li>Simple and intuitive model</li>
+  <li>Handles non-linear data</li>
+  <li>No feature scaling required</li>
+</ul>
+
+---
+
+<h2>9. Conclusion</h2>
+<p>
+This project demonstrates the implementation of a Decision Tree classifier for
+multi-class classification. The model effectively learns decision rules from the
+data and provides accurate predictions, making it suitable for real-world
+classification tasks.
+</p>
