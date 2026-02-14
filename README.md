@@ -1715,3 +1715,227 @@ Evaluation using Classification Report
   <li>Handles high-dimensional data efficiently</li>
   <li>Simple and interpretable</li>
 </ul>
+
+
+<h1>Logistic Regression – Detailed Explanation</h1>
+
+<h2>1. What is Logistic Regression?</h2>
+<p>
+Logistic Regression is a <b>supervised machine learning algorithm</b> used for
+<b>classification problems</b>. Despite its name, it is not used for regression.
+Instead, it predicts the <b>probability</b> that a given input belongs to a
+particular class.
+</p>
+
+<p>
+It is mainly used for:
+</p>
+<ul>
+  <li>Binary Classification (0 or 1, Yes or No)</li>
+  <li>Multi-class Classification (using One-vs-Rest strategy)</li>
+</ul>
+
+---
+
+<h2>2. Why Not Linear Regression for Classification?</h2>
+<p>
+Linear Regression produces outputs that range from <b>-∞ to +∞</b>, which are not
+suitable for classification. Classification problems require outputs between
+<b>0 and 1</b> so they can be interpreted as probabilities.
+</p>
+
+<p>
+Logistic Regression solves this by using the <b>Sigmoid (Logistic) Function</b>.
+</p>
+
+---
+
+<h2>3. Sigmoid Function</h2>
+<p>
+The sigmoid function converts any real value into a number between 0 and 1.
+</p>
+
+<pre>
+σ(z) = 1 / (1 + e<sup>-z</sup>)
+</pre>
+
+<p>
+Where:
+</p>
+<pre>
+z = m1x1 + m2x2 + ... + mnxn + c
+</pre>
+
+<p>
+This output is treated as a probability:
+</p>
+<ul>
+  <li>Probability ≥ 0.5 → Class 1</li>
+  <li>Probability &lt; 0.5 → Class 0</li>
+</ul>
+
+---
+
+<h2>4. Cost Function (Log Loss)</h2>
+<p>
+Logistic Regression uses <b>Log Loss (Binary Cross-Entropy)</b> instead of Mean
+Squared Error.
+</p>
+
+<pre>
+Loss = -[y log(p) + (1 - y) log(1 - p)]
+</pre>
+
+<p>
+This cost function penalizes wrong predictions heavily when the model is very
+confident but incorrect.
+</p>
+
+---
+
+<h2>5. Training Process</h2>
+<ol>
+  <li>Initialize weights</li>
+  <li>Calculate predicted probabilities using sigmoid</li>
+  <li>Compute loss using log loss</li>
+  <li>Update weights using optimization</li>
+  <li>Repeat until loss is minimized</li>
+</ol>
+
+---
+
+<h2>6. Multi-Class Logistic Regression</h2>
+<p>
+For multi-class problems, Logistic Regression uses the
+<b>One-vs-Rest (OvR)</b> strategy. A separate classifier is trained for each class,
+and the class with the highest probability is selected.
+</p>
+
+---
+
+<hr>
+
+<h1>Project Explanation: Iris Flower Classification</h1>
+
+<h2>1. Dataset</h2>
+<p>
+The project uses the famous <b>Iris dataset</b>, which contains measurements of
+iris flowers belonging to three species:
+</p>
+
+<ul>
+  <li>Iris-setosa</li>
+  <li>Iris-versicolor</li>
+  <li>Iris-virginica</li>
+</ul>
+
+<p>
+The dataset includes the following features:
+</p>
+<ul>
+  <li>Sepal Length</li>
+  <li>Sepal Width</li>
+  <li>Petal Length</li>
+  <li>Petal Width</li>
+</ul>
+
+---
+
+<h2>2. Data Preprocessing</h2>
+<p>
+The <b>Id</b> column is removed since it does not contribute to prediction.
+</p>
+
+<p>
+The target column (<b>Species</b>) is label-encoded:
+</p>
+<ul>
+  <li>Iris-setosa → 0</li>
+  <li>Iris-versicolor → 1</li>
+  <li>Iris-virginica → 2</li>
+</ul>
+
+---
+
+<h2>3. Feature and Target Separation</h2>
+<p>
+The dataset is divided into:
+</p>
+<ul>
+  <li><b>X (Features)</b>: Sepal and petal measurements</li>
+  <li><b>y (Target)</b>: Encoded flower species</li>
+</ul>
+
+---
+
+<h2>4. Train-Test Split</h2>
+<p>
+The data is split into training and testing sets:
+</p>
+<ul>
+  <li>80% Training Data</li>
+  <li>20% Testing Data</li>
+</ul>
+
+<p>
+This ensures that the model is evaluated on unseen data.
+</p>
+
+---
+
+<h2>5. Model Training</h2>
+<p>
+A Logistic Regression model from <b>scikit-learn</b> is used and trained on the
+training dataset.
+</p>
+
+<p>
+Internally, the model:
+</p>
+<ul>
+  <li>Applies sigmoid and softmax functions</li>
+  <li>Uses One-vs-Rest classification</li>
+  <li>Learns optimal feature weights</li>
+</ul>
+
+---
+
+<h2>6. Model Evaluation</h2>
+<p>
+Model performance is evaluated using <b>accuracy score</b> on both:
+</p>
+<ul>
+  <li>Training Data</li>
+  <li>Testing Data</li>
+</ul>
+
+<p>
+High accuracy on test data indicates good generalization.
+</p>
+
+---
+
+<h2>7. Prediction with Custom Input</h2>
+<p>
+The model allows prediction using user-defined flower measurements.
+</p>
+
+<p>
+Based on the predicted class value:
+</p>
+<ul>
+  <li>0 → Setosa</li>
+  <li>1 → Versicolor</li>
+  <li>2 → Virginica</li>
+</ul>
+
+---
+
+<h2>8. Conclusion</h2>
+<p>
+This project demonstrates the effective use of Logistic Regression for
+multi-class classification. It includes proper data preprocessing, model
+training, evaluation, and real-time prediction, making it suitable for both
+academic and practical applications.
+</p>
+
