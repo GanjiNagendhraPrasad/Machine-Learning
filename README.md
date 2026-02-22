@@ -3650,3 +3650,229 @@ This ensures the selected hyperparameters generalize well.
 testing on different data splits, providing a more reliable and unbiased
 estimate of how the model will perform on unseen data.
 </p>
+
+
+<h1>⚙️ Hyperparameter Tuning – Detailed Explanation</h1>
+
+<h2>1. What is Hyperparameter Tuning?</h2>
+<p>
+<b>Hyperparameter Tuning</b> is the process of finding the best set of
+<b>hyperparameters</b> for a machine learning model to achieve optimal performance.
+</p>
+<p>
+Hyperparameters are parameters that are set <b>before training</b> and control
+how the model learns.
+</p>
+
+<hr>
+
+<h2>2. Parameters vs Hyperparameters</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>Parameters</th>
+    <th>Hyperparameters</th>
+  </tr>
+  <tr>
+    <td>Definition</td>
+    <td>Learned from data</td>
+    <td>Set before training</td>
+  </tr>
+  <tr>
+    <td>Examples</td>
+    <td>Weights, coefficients</td>
+    <td>Learning rate, max depth, C</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>3. Why Hyperparameter Tuning?</h2>
+
+<h3>Problems Without Tuning</h3>
+<ul>
+  <li>Underfitting or overfitting</li>
+  <li>Poor generalization</li>
+  <li>Suboptimal performance</li>
+</ul>
+
+<h3>Benefits of Tuning</h3>
+<ul>
+  <li>Improves model accuracy</li>
+  <li>Better bias-variance tradeoff</li>
+  <li>Enhances model robustness</li>
+</ul>
+
+<hr>
+
+<h2>4. Common Hyperparameters</h2>
+
+<ul>
+  <li>Learning rate</li>
+  <li>Number of estimators</li>
+  <li>Maximum depth</li>
+  <li>Regularization parameters</li>
+  <li>Kernel parameters</li>
+</ul>
+
+<hr>
+
+<h2>5. Hyperparameter Tuning Techniques</h2>
+
+<h3>1. Manual Search</h3>
+<p>
+Manually selecting hyperparameters based on experience.
+</p>
+<p>
+<b>Disadvantage:</b> Time-consuming and not scalable.
+</p>
+
+<hr>
+
+<h3>2. Grid Search</h3>
+<p>
+Grid Search evaluates all possible combinations of given hyperparameters.
+</p>
+
+<p>
+Advantages:
+</p>
+<ul>
+  <li>Systematic</li>
+  <li>Easy to implement</li>
+</ul>
+
+<p>
+Disadvantages:
+</p>
+<ul>
+  <li>Computationally expensive</li>
+</ul>
+
+<hr>
+
+<h3>3. Random Search</h3>
+<p>
+Random Search selects random combinations of hyperparameters.
+</p>
+
+<p>
+Advantages:
+</p>
+<ul>
+  <li>Faster than grid search</li>
+  <li>Explores larger space</li>
+</ul>
+
+<p>
+Disadvantages:
+</p>
+<ul>
+  <li>May miss optimal values</li>
+</ul>
+
+<hr>
+
+<h3>4. Bayesian Optimization</h3>
+<p>
+Uses probabilistic models to select the next best hyperparameters.
+</p>
+
+<p>
+Advantages:
+</p>
+<ul>
+  <li>Efficient</li>
+  <li>Fewer evaluations</li>
+</ul>
+
+<hr>
+
+<h2>6. Hyperparameter Tuning with Cross Validation</h2>
+<p>
+Hyperparameter tuning is usually combined with <b>cross validation</b>
+to ensure robust performance estimation.
+</p>
+
+<p>
+This helps avoid overfitting to a single train-test split.
+</p>
+
+<hr>
+
+<h2>7. Bias–Variance Tradeoff</h2>
+<p>
+Hyperparameter tuning helps balance:
+</p>
+<ul>
+  <li><b>Bias</b> – underfitting</li>
+  <li><b>Variance</b> – overfitting</li>
+</ul>
+
+<hr>
+
+<h2>8. Common Hyperparameters by Algorithm</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Algorithm</th>
+    <th>Important Hyperparameters</th>
+  </tr>
+  <tr>
+    <td>Linear Regression</td>
+    <td>Regularization (alpha)</td>
+  </tr>
+  <tr>
+    <td>SVM</td>
+    <td>C, kernel, gamma</td>
+  </tr>
+  <tr>
+    <td>Decision Tree</td>
+    <td>max_depth, min_samples_split</td>
+  </tr>
+  <tr>
+    <td>Random Forest</td>
+    <td>n_estimators, max_features</td>
+  </tr>
+  <tr>
+    <td>Gradient Boosting</td>
+    <td>learning_rate, n_estimators</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>9. Advantages of Hyperparameter Tuning</h2>
+<ul>
+  <li>Improves model performance</li>
+  <li>Enhances generalization</li>
+  <li>Provides optimal configurations</li>
+</ul>
+
+<hr>
+
+<h2>10. Disadvantages of Hyperparameter Tuning</h2>
+<ul>
+  <li>Computationally expensive</li>
+  <li>Time-consuming</li>
+  <li>Requires expertise</li>
+</ul>
+
+<hr>
+
+<h2>11. When to Use Hyperparameter Tuning</h2>
+<ul>
+  <li>Model selection</li>
+  <li>Performance optimization</li>
+  <li>Competitive ML tasks</li>
+</ul>
+
+<hr>
+
+<h2>12. Summary</h2>
+<p>
+<b>Hyperparameter Tuning</b> systematically searches for the best hyperparameter
+values to improve model accuracy, balance bias and variance, and ensure
+strong generalization on unseen data.
+</p>
