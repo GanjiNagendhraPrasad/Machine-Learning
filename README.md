@@ -3262,3 +3262,197 @@ Degree of polynomial kernel.
 the margin between classes, using support vectors and kernel functions
 to achieve strong performance on both linear and non-linear data.
 </p>
+
+
+<h1>📊 ROC Curve & AUC – Detailed Explanation</h1>
+
+<h2>1. What is ROC Curve?</h2>
+<p>
+<b>ROC (Receiver Operating Characteristic) Curve</b> is a performance evaluation
+metric used for <b>binary classification models</b>.
+</p>
+<p>
+It shows the trade-off between:
+</p>
+<ul>
+  <li><b>True Positive Rate (TPR)</b></li>
+  <li><b>False Positive Rate (FPR)</b></li>
+</ul>
+<p>
+at different classification threshold values.
+</p>
+
+<hr>
+
+<h2>2. Why ROC Curve?</h2>
+
+<h3>Limitations of Accuracy</h3>
+<ul>
+  <li>Accuracy can be misleading for imbalanced datasets</li>
+  <li>Does not consider probability thresholds</li>
+</ul>
+
+<h3>Benefits of ROC Curve</h3>
+<ul>
+  <li>Evaluates model performance across all thresholds</li>
+  <li>Independent of class distribution</li>
+  <li>Helps compare multiple classifiers</li>
+</ul>
+
+<hr>
+
+<h2>3. Confusion Matrix Basics</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th></th>
+    <th>Predicted Positive</th>
+    <th>Predicted Negative</th>
+  </tr>
+  <tr>
+    <th>Actual Positive</th>
+    <td>True Positive (TP)</td>
+    <td>False Negative (FN)</td>
+  </tr>
+  <tr>
+    <th>Actual Negative</th>
+    <td>False Positive (FP)</td>
+    <td>True Negative (TN)</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>4. Key Terms Used in ROC</h2>
+
+<h3>True Positive Rate (TPR) / Recall</h3>
+<p>
+TPR = TP / (TP + FN)
+</p>
+
+<h3>False Positive Rate (FPR)</h3>
+<p>
+FPR = FP / (FP + TN)
+</p>
+
+<hr>
+
+<h2>5. How ROC Curve is Drawn</h2>
+<ul>
+  <li>Model outputs probabilities</li>
+  <li>Different threshold values are applied</li>
+  <li>TPR and FPR are calculated for each threshold</li>
+  <li>TPR is plotted against FPR</li>
+</ul>
+
+<hr>
+
+<h2>6. What is AUC?</h2>
+<p>
+<b>AUC (Area Under the Curve)</b> represents the area under the ROC curve.
+</p>
+<p>
+It measures the model’s ability to distinguish between positive and negative classes.
+</p>
+
+<hr>
+
+<h2>7. AUC Score Interpretation</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>AUC Value</th>
+    <th>Interpretation</th>
+  </tr>
+  <tr>
+    <td>1.0</td>
+    <td>Perfect classifier</td>
+  </tr>
+  <tr>
+    <td>0.9 – 1.0</td>
+    <td>Excellent</td>
+  </tr>
+  <tr>
+    <td>0.8 – 0.9</td>
+    <td>Good</td>
+  </tr>
+  <tr>
+    <td>0.7 – 0.8</td>
+    <td>Fair</td>
+  </tr>
+  <tr>
+    <td>0.5</td>
+    <td>Random guessing</td>
+  </tr>
+  <tr>
+    <td>&lt; 0.5</td>
+    <td>Worse than random</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>8. ROC Curve Shape Interpretation</h2>
+<ul>
+  <li>Closer to top-left corner → Better model</li>
+  <li>Diagonal line → Random classifier</li>
+  <li>Curve below diagonal → Poor model</li>
+</ul>
+
+<hr>
+
+<h2>9. ROC Curve vs Precision-Recall Curve</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>ROC Curve</th>
+    <th>Precision-Recall Curve</th>
+  </tr>
+  <tr>
+    <td>Focus</td>
+    <td>TPR vs FPR</td>
+    <td>Precision vs Recall</td>
+  </tr>
+  <tr>
+    <td>Best For</td>
+    <td>Balanced datasets</td>
+    <td>Highly imbalanced datasets</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>10. Advantages of ROC & AUC</h2>
+<ul>
+  <li>Threshold-independent evaluation</li>
+  <li>Good for model comparison</li>
+  <li>Works well with imbalanced data</li>
+</ul>
+
+<hr>
+
+<h2>11. Limitations of ROC & AUC</h2>
+<ul>
+  <li>Not ideal when false positives are very costly</li>
+  <li>AUC does not give probability calibration</li>
+</ul>
+
+<hr>
+
+<h2>12. When to Use ROC & AUC</h2>
+<ul>
+  <li>Binary classification problems</li>
+  <li>Model comparison</li>
+  <li>Imbalanced datasets</li>
+</ul>
+
+<hr>
+
+<h2>13. Summary</h2>
+<p>
+<b>ROC Curve</b> visualizes the trade-off between True Positive Rate and
+False Positive Rate across different thresholds, while <b>AUC</b> summarizes
+this performance into a single score representing how well the model
+distinguishes between classes.
+</p>
