@@ -2370,3 +2370,228 @@ reduces impurity across all trees. This helps in feature selection and model int
 <b>Random Forest</b> combines multiple deep decision trees trained on random data
 samples and random feature subsets to produce a powerful, accurate, and robust model.
 </p>
+
+
+
+<h1>🚀 AdaBoost (Adaptive Boosting) – Detailed Explanation</h1>
+
+<h2>1. What is AdaBoost?</h2>
+<p>
+<b>AdaBoost (Adaptive Boosting)</b> is an ensemble learning algorithm that
+combines multiple <b>weak learners</b> to create a strong predictive model.
+</p>
+<p>
+It works by training models sequentially, where each new model focuses more on
+the mistakes made by the previous ones.
+</p>
+
+<p>
+AdaBoost is mainly used for:
+</p>
+<ul>
+  <li><b>Classification</b></li>
+  <li><b>Regression</b> (AdaBoost Regressor)</li>
+</ul>
+
+<hr>
+
+<h2>2. Why AdaBoost?</h2>
+
+<h3>Problems with Single Models</h3>
+<ul>
+  <li>Low accuracy</li>
+  <li>High bias</li>
+  <li>Fails to capture complex patterns</li>
+</ul>
+
+<h3>How AdaBoost Solves This</h3>
+<ul>
+  <li>Focuses on difficult data points</li>
+  <li>Improves accuracy iteratively</li>
+  <li>Turns weak learners into a strong learner</li>
+</ul>
+
+<hr>
+
+<h2>3. Key Idea Behind AdaBoost</h2>
+<p>
+AdaBoost gives <b>more importance (weight)</b> to incorrectly classified data points
+and less importance to correctly classified ones.
+</p>
+<p>
+Each new weak learner tries harder to classify the previously misclassified samples.
+</p>
+
+<hr>
+
+<h2>4. How AdaBoost Works (Step-by-Step)</h2>
+
+<h3>Step 1: Initialize Weights</h3>
+<p>
+All training samples are given equal weights initially.
+</p>
+
+<h3>Step 2: Train a Weak Learner</h3>
+<p>
+A weak learner (usually a decision stump – a tree with depth 1) is trained on the data.
+</p>
+
+<h3>Step 3: Calculate Error</h3>
+<p>
+The error is calculated based on misclassified samples and their weights.
+</p>
+
+<h3>Step 4: Assign Model Weight</h3>
+<p>
+Each weak learner is assigned a weight based on its accuracy.
+Better models get higher weight.
+</p>
+
+<h3>Step 5: Update Sample Weights</h3>
+<ul>
+  <li>Weights of misclassified samples are increased</li>
+  <li>Weights of correctly classified samples are decreased</li>
+</ul>
+
+<h3>Step 6: Repeat</h3>
+<p>
+Steps 2–5 are repeated until the required number of models is trained.
+</p>
+
+<h3>Step 7: Final Prediction</h3>
+<p>
+The final output is a <b>weighted combination</b> of all weak learners.
+</p>
+
+<hr>
+
+<h2>5. Mathematical Intuition (Simple)</h2>
+
+<p>
+Error of model:
+</p>
+<p>
+<b>Error = Sum of weights of misclassified samples</b>
+</p>
+
+<p>
+Model weight:
+</p>
+<p>
+<b>α = ½ × ln((1 − error) / error)</b>
+</p>
+
+<p>
+Final prediction:
+</p>
+<p>
+<b>Sign of weighted sum of all weak learners</b>
+</p>
+
+<hr>
+
+<h2>6. Weak Learners in AdaBoost</h2>
+<p>
+AdaBoost commonly uses <b>Decision Stumps</b>:
+</p>
+<ul>
+  <li>Single split decision trees</li>
+  <li>Very simple models</li>
+  <li>Slightly better than random guessing</li>
+</ul>
+
+<hr>
+
+<h2>7. Important Hyperparameters</h2>
+
+<h3>n_estimators</h3>
+<p>
+Number of weak learners to train.
+</p>
+
+<h3>learning_rate</h3>
+<p>
+Controls how much each weak learner contributes to the final model.
+Lower values make learning slower but more robust.
+</p>
+
+<h3>base_estimator</h3>
+<p>
+The weak learner used by AdaBoost (default is a decision stump).
+</p>
+
+<hr>
+
+<h2>8. Advantages of AdaBoost</h2>
+<ul>
+  <li>High accuracy</li>
+  <li>Reduces bias effectively</li>
+  <li>Easy to implement</li>
+  <li>Works well with simple models</li>
+</ul>
+
+<hr>
+
+<h2>9. Disadvantages of AdaBoost</h2>
+<ul>
+  <li>Sensitive to noisy data</li>
+  <li>Performance degrades with outliers</li>
+  <li>Sequential training makes it slower</li>
+</ul>
+
+<hr>
+
+<h2>10. AdaBoost vs Random Forest</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>AdaBoost</th>
+    <th>Random Forest</th>
+  </tr>
+  <tr>
+    <td>Learning Style</td>
+    <td>Sequential</td>
+    <td>Parallel</td>
+  </tr>
+  <tr>
+    <td>Focus</td>
+    <td>Hard samples</td>
+    <td>Overall variance reduction</td>
+  </tr>
+  <tr>
+    <td>Noise Sensitivity</td>
+    <td>High</td>
+    <td>Low</td>
+  </tr>
+  <tr>
+    <td>Overfitting</td>
+    <td>Low (with clean data)</td>
+    <td>Very Low</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>11. When to Use AdaBoost</h2>
+
+<h3>Recommended</h3>
+<ul>
+  <li>Clean datasets</li>
+  <li>Binary classification problems</li>
+  <li>When base models are weak</li>
+</ul>
+
+<h3>Not Recommended</h3>
+<ul>
+  <li>Highly noisy data</li>
+  <li>Datasets with many outliers</li>
+</ul>
+
+<hr>
+
+<h2>12. Summary</h2>
+<p>
+<b>AdaBoost</b> builds a strong model by combining multiple weak learners,
+giving more importance to difficult samples and improving predictions step by step.
+</p>
