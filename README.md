@@ -3876,3 +3876,240 @@ Hyperparameter tuning helps balance:
 values to improve model accuracy, balance bias and variance, and ensure
 strong generalization on unseen data.
 </p>
+
+
+
+<h1>⚖️ Data Balancing – Detailed Explanation</h1>
+
+<h2>1. What is Data Balancing?</h2>
+<p>
+<b>Data Balancing</b> is the process of adjusting the class distribution in a dataset
+so that all classes are represented fairly.
+</p>
+<p>
+It is mainly used in <b>classification problems</b> where one class appears
+significantly more frequently than others.
+</p>
+
+<hr>
+
+<h2>2. What is Imbalanced Data?</h2>
+<p>
+A dataset is said to be <b>imbalanced</b> when one class dominates the dataset.
+</p>
+
+<p>
+Example:
+</p>
+<ul>
+  <li>90% → Class 0</li>
+  <li>10% → Class 1</li>
+</ul>
+
+<p>
+Such imbalance can cause the model to be biased toward the majority class.
+</p>
+
+<hr>
+
+<h2>3. Why is Data Balancing Important?</h2>
+
+<h3>Problems with Imbalanced Data</h3>
+<ul>
+  <li>High accuracy but poor real performance</li>
+  <li>Minority class is ignored</li>
+  <li>High false negatives</li>
+</ul>
+
+<h3>Benefits of Data Balancing</h3>
+<ul>
+  <li>Improves minority class prediction</li>
+  <li>Reduces model bias</li>
+  <li>Better recall and F1-score</li>
+</ul>
+
+<hr>
+
+<h2>4. Types of Data Balancing Techniques</h2>
+
+<h3>1. Undersampling</h3>
+<p>
+Undersampling reduces the number of samples in the majority class.
+</p>
+
+<p>
+Advantages:
+</p>
+<ul>
+  <li>Faster training</li>
+</ul>
+
+<p>
+Disadvantages:
+</p>
+<ul>
+  <li>Loss of useful information</li>
+</ul>
+
+<hr>
+
+<h3>2. Oversampling</h3>
+<p>
+Oversampling increases the number of samples in the minority class.
+</p>
+
+<p>
+Advantages:
+</p>
+<ul>
+  <li>Preserves majority class data</li>
+</ul>
+
+<p>
+Disadvantages:
+</p>
+<ul>
+  <li>Risk of overfitting</li>
+</ul>
+
+<hr>
+
+<h3>3. SMOTE (Synthetic Minority Over-sampling Technique)</h3>
+<p>
+<b>SMOTE</b> generates new synthetic samples for the minority class instead
+of duplicating existing ones.
+</p>
+
+<p>
+Advantages:
+</p>
+<ul>
+  <li>Reduces overfitting</li>
+  <li>Creates realistic samples</li>
+</ul>
+
+<p>
+Disadvantages:
+</p>
+<ul>
+  <li>Can generate noisy samples</li>
+</ul>
+
+<hr>
+
+<h3>4. Class Weighting</h3>
+<p>
+Assigns higher weights to minority classes during model training.
+</p>
+
+<p>
+This tells the model that misclassifying minority samples is more costly.
+</p>
+
+<hr>
+
+<h2>5. Data Balancing vs No Balancing</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>No Balancing</th>
+    <th>With Balancing</th>
+  </tr>
+  <tr>
+    <td>Bias</td>
+    <td>High</td>
+    <td>Low</td>
+  </tr>
+  <tr>
+    <td>Minority Class Recall</td>
+    <td>Poor</td>
+    <td>Improved</td>
+  </tr>
+  <tr>
+    <td>Model Reliability</td>
+    <td>Low</td>
+    <td>High</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>6. When to Apply Data Balancing</h2>
+<ul>
+  <li>Before model training</li>
+  <li>Only on training data (not test data)</li>
+  <li>After train-test split</li>
+</ul>
+
+<hr>
+
+<h2>7. Evaluation Metrics for Imbalanced Data</h2>
+<ul>
+  <li>Precision</li>
+  <li>Recall</li>
+  <li>F1-score</li>
+  <li>ROC-AUC</li>
+</ul>
+
+<hr>
+
+<h2>8. Common Data Balancing Techniques by Algorithm</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Algorithm</th>
+    <th>Recommended Balancing Method</th>
+  </tr>
+  <tr>
+    <td>Logistic Regression</td>
+    <td>Class Weighting</td>
+  </tr>
+  <tr>
+    <td>Decision Tree</td>
+    <td>SMOTE / Class Weight</td>
+  </tr>
+  <tr>
+    <td>Random Forest</td>
+    <td>Class Weight</td>
+  </tr>
+  <tr>
+    <td>SVM</td>
+    <td>Class Weight</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>9. Advantages of Data Balancing</h2>
+<ul>
+  <li>Improves minority class performance</li>
+  <li>Reduces biased predictions</li>
+  <li>Improves model fairness</li>
+</ul>
+
+<hr>
+
+<h2>10. Disadvantages of Data Balancing</h2>
+<ul>
+  <li>Oversampling may cause overfitting</li>
+  <li>Undersampling may lose information</li>
+  <li>SMOTE may introduce noise</li>
+</ul>
+
+<hr>
+
+<h2>11. When NOT to Use Data Balancing</h2>
+<ul>
+  <li>When classes are already balanced</li>
+  <li>When imbalance reflects real-world importance</li>
+</ul>
+
+<hr>
+
+<h2>12. Summary</h2>
+<p>
+<b>Data Balancing</b> ensures fair class representation in imbalanced datasets
+by using techniques like undersampling, oversampling, SMOTE, and class weighting,
+leading to better and more reliable model performance.
+</p>
