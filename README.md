@@ -2165,3 +2165,208 @@ multi-class classification. The model effectively learns decision rules from the
 data and provides accurate predictions, making it suitable for real-world
 classification tasks.
 </p>
+
+<h1>🌳 Random Forest – Detailed Explanation</h1>
+
+<h2>1. What is Random Forest?</h2>
+<p>
+<b>Random Forest</b> is an ensemble machine learning algorithm that builds
+multiple decision trees and combines their predictions to produce a more
+accurate and stable result.
+</p>
+<p>
+It can be used for:
+</p>
+<ul>
+  <li><b>Classification</b> (e.g., spam detection)</li>
+  <li><b>Regression</b> (e.g., house price prediction)</li>
+</ul>
+<p>
+<b>Key Idea:</b> Many weak models together form a strong model.
+</p>
+
+<hr>
+
+<h2>2. Why Do We Need Random Forest?</h2>
+
+<h3>Problems with Decision Trees</h3>
+<ul>
+  <li>Prone to overfitting</li>
+  <li>High variance</li>
+  <li>Small data changes can drastically change the tree</li>
+</ul>
+
+<h3>How Random Forest Solves This</h3>
+<ul>
+  <li>Reduces overfitting</li>
+  <li>Improves accuracy</li>
+  <li>Creates a more stable model</li>
+</ul>
+
+<hr>
+
+<h2>3. How Random Forest Works (Step-by-Step)</h2>
+
+<h3>Step 1: Bootstrap Sampling (Bagging)</h3>
+<p>
+Random samples are drawn from the original dataset <b>with replacement</b>.
+Each decision tree is trained on a different sample.
+</p>
+<ul>
+  <li>Some records are repeated</li>
+  <li>Some records are left out</li>
+</ul>
+
+<h3>Step 2: Feature Randomness</h3>
+<p>
+At each split in a tree, only a random subset of features is considered.
+This prevents dominant features from controlling all trees.
+</p>
+
+<h3>Step 3: Build Decision Trees</h3>
+<ul>
+  <li>Each tree is built independently</li>
+  <li>Trees are usually deep and unpruned</li>
+</ul>
+
+<h3>Step 4: Combine Predictions</h3>
+
+<h4>For Classification</h4>
+<p>
+Each tree votes for a class. The class with the majority votes becomes the final prediction.
+</p>
+
+<h4>For Regression</h4>
+<p>
+The final prediction is the average of all tree outputs.
+</p>
+
+<hr>
+
+<h2>4. Mathematical Intuition</h2>
+<p>
+Random Forest reduces variance by averaging multiple independent models:
+</p>
+<p>
+<b>Variance of Average = Variance of Tree / Number of Trees</b>
+</p>
+<p>
+More trees and lower correlation between them lead to better performance.
+</p>
+
+<hr>
+
+<h2>5. Important Hyperparameters</h2>
+
+<h3>n_estimators</h3>
+<p>Number of decision trees in the forest.</p>
+
+<h3>max_depth</h3>
+<p>Maximum depth of each tree. Controls overfitting.</p>
+
+<h3>min_samples_split</h3>
+<p>Minimum number of samples required to split a node.</p>
+
+<h3>min_samples_leaf</h3>
+<p>Minimum number of samples required in a leaf node.</p>
+
+<h3>max_features</h3>
+<p>
+Number of features considered at each split.
+</p>
+<ul>
+  <li>Classification: sqrt(number of features)</li>
+  <li>Regression: all features</li>
+</ul>
+
+<h3>criterion</h3>
+<ul>
+  <li>Classification: Gini, Entropy</li>
+  <li>Regression: Mean Squared Error, Mean Absolute Error</li>
+</ul>
+
+<hr>
+
+<h2>6. Advantages of Random Forest</h2>
+<ul>
+  <li>Reduces overfitting</li>
+  <li>High accuracy</li>
+  <li>Works well with large datasets</li>
+  <li>Handles missing values</li>
+  <li>Provides feature importance</li>
+</ul>
+
+<hr>
+
+<h2>7. Disadvantages of Random Forest</h2>
+<ul>
+  <li>Slower than a single decision tree</li>
+  <li>Harder to interpret</li>
+  <li>Uses more memory</li>
+</ul>
+
+<hr>
+
+<h2>8. Feature Importance</h2>
+<p>
+Random Forest provides feature importance scores based on how much each feature
+reduces impurity across all trees. This helps in feature selection and model interpretation.
+</p>
+
+<hr>
+
+<h2>9. Random Forest vs Decision Tree</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>Decision Tree</th>
+    <th>Random Forest</th>
+  </tr>
+  <tr>
+    <td>Overfitting</td>
+    <td>High</td>
+    <td>Low</td>
+  </tr>
+  <tr>
+    <td>Accuracy</td>
+    <td>Medium</td>
+    <td>High</td>
+  </tr>
+  <tr>
+    <td>Stability</td>
+    <td>Low</td>
+    <td>High</td>
+  </tr>
+  <tr>
+    <td>Interpretability</td>
+    <td>High</td>
+    <td>Low</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>10. When to Use Random Forest</h2>
+
+<h3>Recommended</h3>
+<ul>
+  <li>Tabular data</li>
+  <li>Medium to large datasets</li>
+  <li>Non-linear relationships</li>
+</ul>
+
+<h3>Not Recommended</h3>
+<ul>
+  <li>Very small datasets</li>
+  <li>Real-time low-latency systems</li>
+  <li>When model size is critical</li>
+</ul>
+
+<hr>
+
+<h2>11. Summary</h2>
+<p>
+<b>Random Forest</b> combines multiple deep decision trees trained on random data
+samples and random feature subsets to produce a powerful, accurate, and robust model.
+</p>
