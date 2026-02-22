@@ -3033,3 +3033,232 @@ No explicit imputation is required.
 Gradient Boosting by adding regularization, parallelization, and smart handling
 of missing values, making it one of the most successful ML algorithms in practice.
 </p>
+
+
+<h1>📌 Support Vector Machine (SVM) – Detailed Explanation</h1>
+
+<h2>1. What is Support Vector Machine?</h2>
+<p>
+<b>Support Vector Machine (SVM)</b> is a supervised machine learning algorithm
+used for <b>classification</b> and <b>regression</b> problems.
+</p>
+<p>
+The main objective of SVM is to find an <b>optimal decision boundary</b>
+(called a hyperplane) that best separates data points of different classes.
+</p>
+
+<hr>
+
+<h2>2. Why SVM?</h2>
+
+<h3>Problems with Traditional Algorithms</h3>
+<ul>
+  <li>Fail to handle high-dimensional data</li>
+  <li>Poor performance with complex boundaries</li>
+</ul>
+
+<h3>How SVM Solves This</h3>
+<ul>
+  <li>Works well in high-dimensional spaces</li>
+  <li>Handles non-linear boundaries using kernels</li>
+  <li>Focuses on the most important data points</li>
+</ul>
+
+<hr>
+
+<h2>3. Core Idea of SVM</h2>
+<p>
+SVM finds a hyperplane that maximizes the <b>margin</b>
+(distance between the hyperplane and the nearest data points).
+</p>
+
+<p>
+The nearest data points are called <b>Support Vectors</b>.
+</p>
+
+<p>
+Larger margin → Better generalization.
+</p>
+
+<hr>
+
+<h2>4. What is a Hyperplane?</h2>
+<p>
+A hyperplane is a decision boundary that separates data points.
+</p>
+
+<ul>
+  <li>In 2D: a line</li>
+  <li>In 3D: a plane</li>
+  <li>In higher dimensions: a hyperplane</li>
+</ul>
+
+<hr>
+
+<h2>5. Support Vectors</h2>
+<p>
+Support vectors are the data points closest to the hyperplane.
+</p>
+<ul>
+  <li>They define the position of the hyperplane</li>
+  <li>Removing other points does not affect the boundary</li>
+</ul>
+
+<hr>
+
+<h2>6. Types of SVM</h2>
+
+<h3>Linear SVM</h3>
+<p>
+Used when data is linearly separable.
+</p>
+
+<h3>Non-Linear SVM</h3>
+<p>
+Used when data is not linearly separable.
+Uses <b>kernel trick</b>.
+</p>
+
+<hr>
+
+<h2>7. Kernel Trick</h2>
+<p>
+The kernel trick transforms data into a higher-dimensional space
+where it becomes linearly separable.
+</p>
+
+<h3>Common Kernels</h3>
+<ul>
+  <li><b>Linear</b> – For linearly separable data</li>
+  <li><b>Polynomial</b> – Captures polynomial relationships</li>
+  <li><b>RBF (Gaussian)</b> – Handles complex non-linear patterns</li>
+  <li><b>Sigmoid</b> – Similar to neural networks</li>
+</ul>
+
+<hr>
+
+<h2>8. How SVM Works (Step-by-Step)</h2>
+
+<h3>Step 1: Choose a Kernel</h3>
+<p>
+Select a kernel function based on data complexity.
+</p>
+
+<h3>Step 2: Find Optimal Hyperplane</h3>
+<p>
+SVM finds the hyperplane with the maximum margin.
+</p>
+
+<h3>Step 3: Identify Support Vectors</h3>
+<p>
+Only support vectors influence the decision boundary.
+</p>
+
+<h3>Step 4: Make Predictions</h3>
+<p>
+New data points are classified based on which side of the hyperplane they fall.
+</p>
+
+<hr>
+
+<h2>9. Important Hyperparameters</h2>
+
+<h3>C (Regularization Parameter)</h3>
+<p>
+Controls the trade-off between maximizing margin and minimizing classification error.
+</p>
+<ul>
+  <li>Small C → Larger margin, more misclassification</li>
+  <li>Large C → Smaller margin, less misclassification</li>
+</ul>
+
+<h3>kernel</h3>
+<p>
+Specifies the kernel type (linear, poly, rbf, sigmoid).
+</p>
+
+<h3>gamma</h3>
+<p>
+Defines the influence of a single training example.
+</p>
+<ul>
+  <li>Low gamma → Far influence</li>
+  <li>High gamma → Near influence</li>
+</ul>
+
+<h3>degree</h3>
+<p>
+Degree of polynomial kernel.
+</p>
+
+<hr>
+
+<h2>10. Advantages of SVM</h2>
+<ul>
+  <li>Effective in high-dimensional spaces</li>
+  <li>Memory efficient</li>
+  <li>Works well with clear margin separation</li>
+  <li>Robust to overfitting</li>
+</ul>
+
+<hr>
+
+<h2>11. Disadvantages of SVM</h2>
+<ul>
+  <li>Slow for very large datasets</li>
+  <li>Choosing kernel and parameters is difficult</li>
+  <li>Less interpretable</li>
+</ul>
+
+<hr>
+
+<h2>12. SVM vs Logistic Regression</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>SVM</th>
+    <th>Logistic Regression</th>
+  </tr>
+  <tr>
+    <td>Decision Boundary</td>
+    <td>Maximum margin</td>
+    <td>Probability-based</td>
+  </tr>
+  <tr>
+    <td>Non-linearity</td>
+    <td>Handled via kernels</td>
+    <td>Needs feature engineering</td>
+  </tr>
+  <tr>
+    <td>Performance</td>
+    <td>High (small/medium data)</td>
+    <td>Good (large data)</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>13. When to Use SVM</h2>
+
+<h3>Recommended</h3>
+<ul>
+  <li>High-dimensional datasets</li>
+  <li>Text classification</li>
+  <li>Image classification (small to medium data)</li>
+</ul>
+
+<h3>Not Recommended</h3>
+<ul>
+  <li>Very large datasets</li>
+  <li>Highly noisy data</li>
+</ul>
+
+<hr>
+
+<h2>14. Summary</h2>
+<p>
+<b>Support Vector Machine</b> finds the optimal hyperplane that maximizes
+the margin between classes, using support vectors and kernel functions
+to achieve strong performance on both linear and non-linear data.
+</p>
