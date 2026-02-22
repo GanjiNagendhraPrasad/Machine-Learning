@@ -3456,3 +3456,197 @@ False Positive Rate across different thresholds, while <b>AUC</b> summarizes
 this performance into a single score representing how well the model
 distinguishes between classes.
 </p>
+
+<h1>🔁 Cross Validation – Detailed Explanation</h1>
+
+<h2>1. What is Cross Validation?</h2>
+<p>
+<b>Cross Validation</b> is a model evaluation technique used to assess how well
+a machine learning model generalizes to unseen data.
+</p>
+<p>
+Instead of using a single train-test split, cross validation repeatedly
+trains and tests the model on different subsets of the data.
+</p>
+
+<hr>
+
+<h2>2. Why Cross Validation?</h2>
+
+<h3>Problems with Single Train-Test Split</h3>
+<ul>
+  <li>Model performance depends on how data is split</li>
+  <li>High variance in evaluation results</li>
+  <li>Risk of overfitting or underfitting</li>
+</ul>
+
+<h3>Benefits of Cross Validation</h3>
+<ul>
+  <li>More reliable performance estimate</li>
+  <li>Uses entire dataset effectively</li>
+  <li>Reduces evaluation bias</li>
+</ul>
+
+<hr>
+
+<h2>3. How Cross Validation Works</h2>
+<p>
+The dataset is divided into multiple parts called <b>folds</b>.
+</p>
+<ul>
+  <li>One fold is used for testing</li>
+  <li>Remaining folds are used for training</li>
+  <li>The process is repeated for each fold</li>
+</ul>
+
+<p>
+Final performance is the <b>average score</b> across all folds.
+</p>
+
+<hr>
+
+<h2>4. K-Fold Cross Validation</h2>
+<p>
+<b>K-Fold Cross Validation</b> is the most commonly used technique.
+</p>
+
+<ul>
+  <li>Dataset is split into <b>K</b> equal folds</li>
+  <li>Model is trained K times</li>
+  <li>Each fold is used once as test data</li>
+</ul>
+
+<p>
+Example:
+</p>
+<ul>
+  <li>K = 5 → Train 5 times</li>
+  <li>K = 10 → Train 10 times</li>
+</ul>
+
+<hr>
+
+<h2>5. Stratified K-Fold Cross Validation</h2>
+<p>
+<b>Stratified K-Fold</b> ensures that each fold has the same class distribution
+as the original dataset.
+</p>
+<p>
+It is especially useful for <b>imbalanced datasets</b>.
+</p>
+
+<hr>
+
+<h2>6. Leave-One-Out Cross Validation (LOOCV)</h2>
+<p>
+<b>Leave-One-Out Cross Validation</b> uses:
+</p>
+<ul>
+  <li>1 sample for testing</li>
+  <li>Remaining samples for training</li>
+</ul>
+<p>
+This process is repeated for every data point.
+</p>
+
+<p>
+Advantages:
+</p>
+<ul>
+  <li>Very low bias</li>
+</ul>
+
+<p>
+Disadvantages:
+</p>
+<ul>
+  <li>Very high computational cost</li>
+</ul>
+
+<hr>
+
+<h2>7. Time Series Cross Validation</h2>
+<p>
+Used when data has a time dependency.
+</p>
+<ul>
+  <li>Training data always comes before test data</li>
+  <li>Future data is never used to predict past data</li>
+</ul>
+
+<hr>
+
+<h2>8. Cross Validation vs Train-Test Split</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>Train-Test Split</th>
+    <th>Cross Validation</th>
+  </tr>
+  <tr>
+    <td>Data Usage</td>
+    <td>Partial</td>
+    <td>Full</td>
+  </tr>
+  <tr>
+    <td>Performance Estimate</td>
+    <td>Unstable</td>
+    <td>Stable</td>
+  </tr>
+  <tr>
+    <td>Computation</td>
+    <td>Fast</td>
+    <td>Slower</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>9. Advantages of Cross Validation</h2>
+<ul>
+  <li>Better generalization estimation</li>
+  <li>Reduces overfitting risk</li>
+  <li>Works well with small datasets</li>
+</ul>
+
+<hr>
+
+<h2>10. Disadvantages of Cross Validation</h2>
+<ul>
+  <li>Computationally expensive</li>
+  <li>Not suitable for very large datasets</li>
+</ul>
+
+<hr>
+
+<h2>11. When to Use Cross Validation</h2>
+<ul>
+  <li>Small to medium datasets</li>
+  <li>Model selection</li>
+  <li>Hyperparameter tuning</li>
+</ul>
+
+<hr>
+
+<h2>12. Cross Validation in Hyperparameter Tuning</h2>
+<p>
+Cross validation is commonly used with:
+</p>
+<ul>
+  <li>GridSearchCV</li>
+  <li>RandomizedSearchCV</li>
+</ul>
+
+<p>
+This ensures the selected hyperparameters generalize well.
+</p>
+
+<hr>
+
+<h2>13. Summary</h2>
+<p>
+<b>Cross Validation</b> evaluates model performance by repeatedly training and
+testing on different data splits, providing a more reliable and unbiased
+estimate of how the model will perform on unseen data.
+</p>
