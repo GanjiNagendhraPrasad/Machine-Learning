@@ -2595,3 +2595,220 @@ The weak learner used by AdaBoost (default is a decision stump).
 <b>AdaBoost</b> builds a strong model by combining multiple weak learners,
 giving more importance to difficult samples and improving predictions step by step.
 </p>
+
+
+<h1>📈 Gradient Boosting – Detailed Explanation</h1>
+
+<h2>1. What is Gradient Boosting?</h2>
+<p>
+<b>Gradient Boosting</b> is an ensemble learning algorithm that builds models
+<b>sequentially</b>, where each new model tries to correct the errors made by
+the previous models.
+</p>
+<p>
+Unlike Random Forest (parallel trees), Gradient Boosting focuses on
+<b>reducing errors step by step</b>.
+</p>
+
+<p>
+It is used for:
+</p>
+<ul>
+  <li><b>Classification</b></li>
+  <li><b>Regression</b></li>
+</ul>
+
+<hr>
+
+<h2>2. Why Gradient Boosting?</h2>
+
+<h3>Limitations of Simple Models</h3>
+<ul>
+  <li>High bias</li>
+  <li>Cannot capture complex patterns</li>
+</ul>
+
+<h3>How Gradient Boosting Helps</h3>
+<ul>
+  <li>Reduces bias gradually</li>
+  <li>Learns complex non-linear relationships</li>
+  <li>Improves accuracy iteratively</li>
+</ul>
+
+<hr>
+
+<h2>3. Core Idea of Gradient Boosting</h2>
+<p>
+Gradient Boosting trains new models to predict the <b>residual errors</b>
+of previous models.
+</p>
+
+<p>
+Residual = Actual Value − Predicted Value
+</p>
+
+<p>
+Each new model focuses on minimizing a <b>loss function</b>
+using gradient descent.
+</p>
+
+<hr>
+
+<h2>4. How Gradient Boosting Works (Step-by-Step)</h2>
+
+<h3>Step 1: Initialize Model</h3>
+<p>
+Start with a simple prediction (mean value for regression or log-odds for classification).
+</p>
+
+<h3>Step 2: Compute Residuals</h3>
+<p>
+Calculate the difference between actual values and predicted values.
+</p>
+
+<h3>Step 3: Train a Weak Learner</h3>
+<p>
+A weak learner (usually a shallow decision tree) is trained on the residuals.
+</p>
+
+<h3>Step 4: Update Predictions</h3>
+<p>
+Predictions are updated by adding the new model’s output multiplied by a learning rate.
+</p>
+
+<h3>Step 5: Repeat</h3>
+<p>
+Steps 2–4 are repeated until the specified number of models is reached.
+</p>
+
+<h3>Step 6: Final Prediction</h3>
+<p>
+The final prediction is the sum of predictions from all weak learners.
+</p>
+
+<hr>
+
+<h2>5. Loss Function and Gradient Descent</h2>
+<p>
+Gradient Boosting minimizes a loss function using gradient descent.
+</p>
+
+<ul>
+  <li>Regression: Mean Squared Error (MSE)</li>
+  <li>Classification: Log Loss</li>
+</ul>
+
+<p>
+Each model moves the prediction in the direction that reduces the loss.
+</p>
+
+<hr>
+
+<h2>6. Weak Learners in Gradient Boosting</h2>
+<ul>
+  <li>Shallow decision trees</li>
+  <li>Low depth (usually depth = 3)</li>
+  <li>Low variance, high bias models</li>
+</ul>
+
+<hr>
+
+<h2>7. Important Hyperparameters</h2>
+
+<h3>n_estimators</h3>
+<p>
+Number of boosting stages (trees).
+</p>
+
+<h3>learning_rate</h3>
+<p>
+Controls how much each tree contributes to the final prediction.
+Smaller values require more trees but improve generalization.
+</p>
+
+<h3>max_depth</h3>
+<p>
+Maximum depth of individual trees.
+</p>
+
+<h3>subsample</h3>
+<p>
+Fraction of samples used for training each tree.
+Helps reduce overfitting.
+</p>
+
+<hr>
+
+<h2>8. Advantages of Gradient Boosting</h2>
+<ul>
+  <li>High predictive accuracy</li>
+  <li>Handles complex patterns</li>
+  <li>Works well with structured data</li>
+  <li>Flexible loss functions</li>
+</ul>
+
+<hr>
+
+<h2>9. Disadvantages of Gradient Boosting</h2>
+<ul>
+  <li>Sensitive to noisy data</li>
+  <li>Can overfit if not tuned properly</li>
+  <li>Slower training due to sequential learning</li>
+</ul>
+
+<hr>
+
+<h2>10. Gradient Boosting vs AdaBoost</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Aspect</th>
+    <th>Gradient Boosting</th>
+    <th>AdaBoost</th>
+  </tr>
+  <tr>
+    <td>Error Handling</td>
+    <td>Uses gradients of loss function</td>
+    <td>Reweights misclassified samples</td>
+  </tr>
+  <tr>
+    <td>Loss Function</td>
+    <td>Customizable</td>
+    <td>Exponential loss</td>
+  </tr>
+  <tr>
+    <td>Noise Sensitivity</td>
+    <td>Medium</td>
+    <td>High</td>
+  </tr>
+  <tr>
+    <td>Flexibility</td>
+    <td>High</td>
+    <td>Low</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>11. When to Use Gradient Boosting</h2>
+
+<h3>Recommended</h3>
+<ul>
+  <li>Medium to large datasets</li>
+  <li>Complex relationships</li>
+  <li>When high accuracy is required</li>
+</ul>
+
+<h3>Not Recommended</h3>
+<ul>
+  <li>Very noisy datasets</li>
+  <li>Real-time low-latency applications</li>
+</ul>
+
+<hr>
+
+<h2>12. Summary</h2>
+<p>
+<b>Gradient Boosting</b> builds strong models by sequentially adding weak learners
+that correct previous errors using gradient descent, resulting in highly accurate predictions.
+</p>
