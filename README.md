@@ -4113,3 +4113,190 @@ This tells the model that misclassifying minority samples is more costly.
 by using techniques like undersampling, oversampling, SMOTE, and class weighting,
 leading to better and more reliable model performance.
 </p>
+
+
+<h1>Clustering Algorithms: K-Means & Hierarchical</h1>
+
+<hr>
+
+<h2>🔹 1. K-Means Clustering</h2>
+
+<h3>📌 What is K-Means?</h3>
+<p>
+K-Means is an <b>unsupervised learning algorithm</b> used to divide data into 
+<b>K distinct clusters</b> based on similarity.
+</p>
+<p><b>Goal:</b> Group similar data points together and separate different ones.</p>
+
+<h3>⚙️ How K-Means Works</h3>
+<ol>
+<li>Choose the number of clusters <b>K</b></li>
+<li>Initialize <b>K centroids</b> randomly</li>
+<li>Assign each data point to the nearest centroid</li>
+<li>Recalculate centroids as the mean of assigned points</li>
+<li>Repeat until centroids stop changing</li>
+</ol>
+
+<h3>📊 Example</h3>
+<p>
+Customer segmentation based on Age and Income:
+<ul>
+<li>Low income</li>
+<li>Medium income</li>
+<li>High income</li>
+</ul>
+</p>
+
+<h3>📐 Objective Function</h3>
+<p>Minimizes <b>WCSS (Within Cluster Sum of Squares)</b></p>
+
+<h3>📈 Choosing K</h3>
+<p><b>Elbow Method:</b> Select K where the graph bends like an elbow.</p>
+
+<h3>✅ Advantages</h3>
+<ul>
+<li>Simple and fast</li>
+<li>Works well for large datasets</li>
+<li>Easy to implement</li>
+</ul>
+
+<h3>❌ Disadvantages</h3>
+<ul>
+<li>Need to choose K manually</li>
+<li>Sensitive to initial centroids</li>
+<li>Not good for non-spherical clusters or outliers</li>
+</ul>
+
+<h3>🧠 Use Cases</h3>
+<ul>
+<li>Customer segmentation</li>
+<li>Image compression</li>
+<li>Market analysis</li>
+</ul>
+
+<hr>
+
+<h2>🔹 2. Hierarchical Clustering</h2>
+
+<h3>📌 What is Hierarchical Clustering?</h3>
+<p>
+Builds a <b>tree-like structure (dendrogram)</b> of clusters.
+No need to specify number of clusters initially.
+</p>
+
+<h3>🔁 Types</h3>
+<ul>
+<li><b>Agglomerative (Bottom-Up)</b></li>
+<li><b>Divisive (Top-Down)</b></li>
+</ul>
+
+<h3>⚙️ Agglomerative Steps</h3>
+<ol>
+<li>Start with each point as its own cluster</li>
+<li>Compute distances between clusters</li>
+<li>Merge closest clusters</li>
+<li>Repeat until one cluster remains</li>
+</ol>
+
+<h3>📏 Linkage Methods</h3>
+<ul>
+<li>Single Linkage (minimum distance)</li>
+<li>Complete Linkage (maximum distance)</li>
+<li>Average Linkage</li>
+<li>Ward’s Method (minimizes variance)</li>
+</ul>
+
+<h3>🌳 Dendrogram</h3>
+<p>
+A tree diagram showing how clusters merge. You can cut the tree at a level 
+to get desired clusters.
+</p>
+
+<h3>✅ Advantages</h3>
+<ul>
+<li>No need to choose K initially</li>
+<li>Works well for small datasets</li>
+<li>Provides hierarchy</li>
+</ul>
+
+<h3>❌ Disadvantages</h3>
+<ul>
+<li>Slow for large datasets</li>
+<li>Not scalable</li>
+<li>Cannot undo merging</li>
+</ul>
+
+<h3>🧠 Use Cases</h3>
+<ul>
+<li>Gene classification</li>
+<li>Document clustering</li>
+<li>Image segmentation</li>
+</ul>
+
+<hr>
+
+<h2>🔥 K-Means vs Hierarchical</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+<tr>
+<th>Feature</th>
+<th>K-Means</th>
+<th>Hierarchical</th>
+</tr>
+<tr>
+<td>Type</td>
+<td>Partition-based</td>
+<td>Tree-based</td>
+</tr>
+<tr>
+<td>Need K?</td>
+<td>Yes</td>
+<td>No (initially)</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Fast</td>
+<td>Slow</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Flat clusters</td>
+<td>Dendrogram</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>💡 When to Use</h2>
+
+<p><b>Use K-Means:</b></p>
+<ul>
+<li>Large datasets</li>
+<li>K is known</li>
+<li>Need fast results</li>
+</ul>
+
+<p><b>Use Hierarchical:</b></p>
+<ul>
+<li>Small datasets</li>
+<li>Need hierarchy</li>
+<li>K is unknown</li>
+</ul>
+
+<hr>
+
+<h2>🎯 Intuition</h2>
+<ul>
+<li><b>K-Means:</b> Group into K clusters</li>
+<li><b>Hierarchical:</b> Build a cluster tree</li>
+</ul>
